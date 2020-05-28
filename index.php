@@ -1,4 +1,8 @@
+<?php 
 
+include __DIR__ . '/partials/data/database.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
