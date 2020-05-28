@@ -32,8 +32,8 @@ include __DIR__ . '/partials/templates/head.php';
                                 <td><?php echo $room['floor']; ?></td>
                                 <td><?php echo $room['beds']; ?></td>
                                 <td><a class="text-success" href="<?php echo "show.php?id={$room['id']}"; ?>">Visualizza</a></td>
-                                <td><a class="text-warning" href="<?php echo "update.php?id={$room['id']}"; ?>">Modifica</a></td>
-                                <td><a class="text-danger" href="<?php echo "delete.php?id={$room['id']}"; ?>">Elimina</a></td>
+                                <td><a class="text-warning" href="#">Modifica</a></td>
+                                <td><a class="text-danger" href="#">Elimina</a></td>
                             </tr>
                     <?php
                         }
