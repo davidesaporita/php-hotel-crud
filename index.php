@@ -7,7 +7,7 @@ include __DIR__ . '/partials/templates/head.php';
 
 <main class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 col-lg-8 offset-lg-2">
         
             <header>
                 <h1>Hotel Rooms List</h1>
@@ -31,9 +31,9 @@ include __DIR__ . '/partials/templates/head.php';
                                 <td><?php echo $room['room_number']; ?></td>
                                 <td><?php echo $room['floor']; ?></td>
                                 <td><?php echo $room['beds']; ?></td>
-                                <td><a href="<?php echo __DIR__ . "/show.php?id={$room['id']}"; ?>">Visualizza</a></td>
-                                <td><a href="<?php echo __DIR__ . "/update.php?id={$room['id']}"; ?>">Modifica</a></td>
-                                <td><a href="<?php echo __DIR__ . "/delete.php?id={$room['id']}"; ?>">Elimina</a></td>
+                                <td><a class="text-success" href="<?php echo "show.php?id={$room['id']}"; ?>">Visualizza</a></td>
+                                <td><a class="text-warning" href="<?php echo "update.php?id={$room['id']}"; ?>">Modifica</a></td>
+                                <td><a class="text-danger" href="<?php echo "delete.php?id={$room['id']}"; ?>">Elimina</a></td>
                             </tr>
                     <?php
                         }
