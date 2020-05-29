@@ -22,7 +22,9 @@ include __DIR__ . '/partials/templates/head.php';
                     <input type="number" class="form-control" name="floor" id="floor" value="<?php echo $room['floor']; ?>">
                 </div>
                 <input type="hidden" name="id" id="id" value="<?php echo $room['id']; ?>">
-                <button type="submit" class="btn btn-primary">Esegui Modifica</button>
+                <button type="submit" class="btn btn-warning">Esegui Modifica</button>
+                <a href="<?php echo $base_path; ?>" class="btn btn-primary">Torna alla lista</a>
+                <a href="<?php echo "$base_path/show.php?id={$room['id']}"; ?>" class="btn btn-secondary">Torna alla stanza</a>
             </form>
         </div>
     </div>
