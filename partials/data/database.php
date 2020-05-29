@@ -1,6 +1,6 @@
 <?php 
 
-require __DIR__ . '/../../env.php';
+require_once __DIR__ . '/../../env.php';
 
 // DB Connection
 $conn = new mysqli( $server_name, $username, $password, $db_name );

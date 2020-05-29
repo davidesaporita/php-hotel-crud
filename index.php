@@ -32,9 +32,15 @@ include __DIR__ . '/partials/templates/head.php';
                                 <td><?php echo $room['room_number']; ?></td>
                                 <td><?php echo $room['floor']; ?></td>
                                 <td><?php echo $room['beds']; ?></td>
-                                <td><a class="text-success" href="<?php echo "show.php?id={$room['id']}"; ?>">Visualizza</a></td>
-                                <td><a class="text-warning" href="#">Modifica</a></td>
-                                <td><a class="text-danger" href="#">Elimina</a></td>
+                                <td><a class="text-success" href="<?php echo "$base_path/show.php?id={$room['id']}"; ?>">Visualizza</a></td>
+                                <td><a class="text-warning" href="<?php echo "$base_path/edit.php?id={$room['id']}"; ?>">Modifica</a></td>
+                                <td>
+                                    <form action="<?php echo "$base_path/partials/delete/server.php"?>"
+                                          method="POST">
+                                          <input type="hidden" value="<?php echo $room['id']; ?>">
+                                          <input class="btn btn-danger" type="submit" value="Elimina">
+                                    </form>
+                                </td>
                             </tr>
                     <?php
                         }
