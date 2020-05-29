@@ -5,10 +5,27 @@ include __DIR__ . '/partials/templates/head.php';
 
 ?>
 
+<?php 
+    if (!empty($_GET['action'])) {
+        if ($_GET['action'] == 'deleted') { ?>
+        <div class="container-fluid notifications text-center">
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success" role="alert">
+                        Record eliminato con successo
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php 
+        }
+    }
+    ?>
+
 <main class="container">
     <div class="row">
         <div class="col-12 col-lg-8 offset-lg-2">
-        
+
             <header>
                 <h1>Hotel Rooms List</h1>
             </header>
@@ -26,7 +43,7 @@ include __DIR__ . '/partials/templates/head.php';
                 <tbody>
 
                     <?php 
-                    if(!empty($rooms)){
+                    if (!empty($rooms)){
                         foreach ($rooms as $key => $room) { ?>
                             <tr>
                                 <td><?php echo $room['room_number']; ?></td>
@@ -37,7 +54,7 @@ include __DIR__ . '/partials/templates/head.php';
                                 <td>
                                     <form action="<?php echo "$base_path/partials/delete/server.php"?>"
                                           method="POST">
-                                          <input type="hidden" value="<?php echo $room['id']; ?>">
+                                          <input type="hidden" name="id" value="<?php echo $room['id']; ?>">
                                           <input class="btn btn-danger" type="submit" value="Elimina">
                                     </form>
                                 </td>
