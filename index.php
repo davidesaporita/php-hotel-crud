@@ -6,19 +6,22 @@ include __DIR__ . '/partials/templates/head.php';
 ?>
 
 <?php 
-    if (!empty($_GET['action'])) {
-        if ($_GET['action'] == 'deleted') { ?>
+    if (!empty($_GET['action']) && !empty($_GET['id'])) { ?>
         <div class="container-fluid notifications text-center">
             <div class="row">
                 <div class="col-12">
                     <div class="alert alert-success" role="alert">
-                        Record eliminato con successo
+                        <?php
+                        switch($_GET['action']) {
+                            case ('deleted'): echo "Record <strong>{$_GET['id']}</strong> eliminato con successo"; break;
+                            case ('updated'): echo "Record <strong>{$_GET['id']}</strong> aggiornato con successo"; break;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
     <?php 
-        }
     }
     ?>
 

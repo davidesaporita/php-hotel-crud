@@ -11,7 +11,7 @@ if (!empty($_POST['id'])) {
     $result = $conn -> query($sql);
 
     if ($result && $conn -> affected_rows > 0) {
-        header("Location: $base_path?action=deleted");
+        header("Location: $base_path?id=$room_id&action=deleted");
     } elseif ($result) {
         echo "Query OK<br>Nessun record eliminato";
     } else {
