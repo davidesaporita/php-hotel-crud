@@ -20,9 +20,7 @@ include_once __DIR__ . '/../../env.php';
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <a href="<?php echo $base_path; ?>"
-                   class="btn btn-outline-success my-2 my-sm-0" 
-                   role="button">Home</a>
+                <a href="<?php echo $base_path; ?>" class="btn btn-primary" role="button">Rooms List</a>
             </div>
         </nav>
     </header>
