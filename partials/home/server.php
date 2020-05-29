@@ -5,14 +5,14 @@
 include __DIR__ . '/../data/database.php';
 
 $sql = "SELECT * FROM `stanze`";
-$result = $conn->query($sql);
+$result = $conn -> query($sql);
 
-if ($result && $result->num_rows > 0) {
+if ($result && $result -> num_rows > 0) {
 
     // Init and populate array $rooms
     $rooms = [];
     
-    while($row = $result->fetch_assoc()) {
+    while($row = $result -> fetch_assoc()) {
         $rooms[] = $row;
     }
 

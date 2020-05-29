@@ -18,6 +18,7 @@ include __DIR__ . '/partials/templates/head.php';
 
 <?php 
 
+include __DIR__ . '/partials/data/close-db.php';
 include __DIR__ . '/partials/templates/footer.php';
 
 ?>

@@ -24,6 +24,7 @@ include __DIR__ . '/partials/templates/head.php';
                 </thead>        
 
                 <tbody>
+
                     <?php 
                     if(!empty($rooms)){
                         foreach ($rooms as $key => $room) { ?>
@@ -39,7 +40,6 @@ include __DIR__ . '/partials/templates/head.php';
                         }
                     } 
                     ?>
-
                     
                 </tbody>
 
@@ -50,6 +50,7 @@ include __DIR__ . '/partials/templates/head.php';
 
 <?php 
 
+include __DIR__ . '/partials/data/close-db.php';
 include __DIR__ . '/partials/templates/footer.php';
 
 ?>
