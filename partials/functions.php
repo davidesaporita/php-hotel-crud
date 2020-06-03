@@ -40,6 +40,25 @@ function getById($conn, $table, $room_id) {
     return $row;
 }
 
+function deleteById($conn, $table, $room_id, $base_path) {
+    
+    $sql = "DELETE FROM `stanze`
+            WHERE `id` = ?";
+
+    $stmt = $conn -> prepare($sql);
+    $stmt -> bind_param("i", $room_id);
+    $stmt -> execute();
+
+    if ($stmt && $stmt -> affected_rows > 0) {
+        header("Location: $base_path?id=$room_id&action=deleted");
+    } elseif ($stmt) {
+        die("Query OK<br>Nessun record eliminato"); 
+    } else {
+        echo "Problema nella query";
+    }
+
+}
+
 function updateRoomById($conn, $table, $room_data, $base_path) {
     
     $stmt = $conn -> prepare("UPDATE `stanze`
@@ -47,7 +66,6 @@ function updateRoomById($conn, $table, $room_data, $base_path) {
                               WHERE `id` = ?");
     $stmt -> bind_param("iiii", $room_data['room_number'], $room_data['beds'], $room_data['floor'], $room_data['id']);
     $stmt -> execute();
-    var_dump($stmt);
 
     if ($stmt && $stmt -> affected_rows > 0) {
         header("Location: $base_path?id={$room_data['id']}&action=updated");

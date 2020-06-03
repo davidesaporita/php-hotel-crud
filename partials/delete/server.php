@@ -1,24 +1,13 @@
 <?php 
 
 include __DIR__ . '/../data/database.php';
+include __DIR__ . '/../../partials/functions.php';
 
 if (!empty($_POST['id'])) {
+
     $room_id = $_POST['id'];
-    
-    $sql = "DELETE FROM `stanze`
-            WHERE `id` = $room_id";
+    deleteById($conn, 'stanze', $room_id, $base_path);
 
-    $result = $conn -> query($sql);
-
-    if ($result && $conn -> affected_rows > 0) {
-        header("Location: $base_path?id=$room_id&action=deleted");
-    } elseif ($result) {
-        echo "Query OK<br>Nessun record eliminato";
-    } else {
-        echo "Problema nella query";
-    }
 } else {
     echo "Nessun dato in POST";
 }
-
-include __DIR__ . '/../data/close-db.php';
