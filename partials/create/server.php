@@ -16,4 +16,6 @@ if (empty($_POST['room_number']) || empty($_POST['beds']) || empty($_POST['floor
     } else {
         die("Qualcosa è andato storto nella creazione della stanza");
     }
+
+    $stmt -> close();
 }
