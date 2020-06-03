@@ -15,6 +15,7 @@ include __DIR__ . '/partials/templates/head.php';
                         switch($_GET['action']) {
                             case ('deleted'): echo "Record <strong>{$_GET['id']}</strong> eliminato con successo"; break;
                             case ('updated'): echo "Record <strong>{$_GET['id']}</strong> aggiornato con successo"; break;
+                            case ('created'): echo "Record <strong>{$_GET['id']}</strong> creato con successo"; break;
                         }
                         ?>
                     </div>
