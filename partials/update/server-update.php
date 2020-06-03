@@ -1,30 +1,20 @@
 <?php 
 
 include __DIR__ . '/../data/database.php';
+include __DIR__ . '/../../partials/functions.php';
+
+var_dump($_POST);
 
 if (!empty($_POST['id'])) { 
 
-    $room_id = $_POST['id'];
-    $room_number = $_POST['room_number'];
-    $beds = $_POST['beds'];
-    $floor = $_POST['floor'];
+    $room_data = [];
+    $room_data['id'] = $_POST['id'];
+    $room_data['beds'] = $_POST['beds'];
+    $room_data['floor'] = $_POST['floor'];
+    $room_data['room_number'] = $_POST['room_number'];
     
-    $sql = "UPDATE `stanze`
-            SET `room_number` = $room_number, `beds` = $beds, `floor` = $floor
-            WHERE `id` = $room_id";
-
-    $result = $conn -> query($sql);
-
-    if ($result && $conn -> affected_rows > 0) {
-        header("Location: $base_path?id=$room_id&action=updated");
-        //header("Location: $base_path/edit.php?id=$room_id&action=updated");
-        //header("Location: $base_path/show.php?id=$room_id&action=updated");
-    } elseif ($result) {
-        echo "La query non ha modificato alcun record";
-    } else {
-        echo "Errore nella query";
-    }
+    updateRoomById($conn, 'stanze', $room_data, $base_path);
 
 } else {
-    echo "Nessun ID in POST";
+    echo "Nessun ID in POST!";
 }

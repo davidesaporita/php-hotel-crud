@@ -40,4 +40,27 @@ function getById($conn, $table, $room_id) {
     return $row;
 }
 
+function updateRoomById($conn, $table, $room_data, $base_path) {
+    
+    $stmt = $conn -> prepare("UPDATE `stanze`
+                              SET `room_number` = ?, `beds` = ?, `floor` = ?
+                              WHERE `id` = ?");
+    $stmt -> bind_param("iiii", $room_data['room_number'], $room_data['beds'], $room_data['floor'], $room_data['id']);
+    $stmt -> execute();
+    var_dump($stmt);
+
+    if ($stmt && $stmt -> affected_rows > 0) {
+        header("Location: $base_path?id={$room_data['id']}&action=updated");
+        //header("Location: $base_path/edit.php?id=$room_id&action=updated");
+        //header("Location: $base_path/show.php?id=$room_id&action=updated");
+    } elseif ($stmt) {
+        echo "La query non ha modificato alcun record";
+    } else {
+        echo "Errore nella query";
+    }
+
+    $stmt -> close();
+    $conn -> close();
+}
+
 ?>
